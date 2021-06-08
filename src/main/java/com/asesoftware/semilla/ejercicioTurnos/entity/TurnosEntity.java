@@ -1,5 +1,7 @@
 package com.asesoftware.semilla.ejercicioTurnos.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,27 +13,28 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "servicios")
-public class ServicioEntity {
-
+@Table(name = "turnos")
+public class TurnosEntity {
+	
 	@Id
+	@Column(name = "id_turno")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id_turno;
+	
 	@Column(name = "id_servicio")
 	private Integer id_servicio;
 	
-	@Column(name = "id_comercio")
-	private Integer id_comercio;
+	@Column(name = "fecha_turno")
+	private Date fecha_turno;
 	
-	@Column(name = "nombre_servicio")
-	private String nombre_servicio;
+	@Column(name = "hora_inicio")
+	private String hora_inicio;
 	
-	@Column(name = "hora_apertura")
-	private String hora_apertura;
+	@Column(name = "hora_fin")
+	private String hora_fin;
 	
-	@Column(name = "hora_cierre")
-	private String hora_cierre;
+	@Column(name = "estado")
+	private String estado;
 	
-	@Column(name = "duracion")
-	private Integer duracion;
-	
+
 }
