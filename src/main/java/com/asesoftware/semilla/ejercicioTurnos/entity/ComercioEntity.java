@@ -1,6 +1,7 @@
 package com.asesoftware.semilla.ejercicioTurnos.entity;
 
-import javax.annotation.sql.DataSourceDefinition;
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,8 +27,10 @@ public class ComercioEntity {
 	@Column(name = "aforo_maximo")
 	private Integer aforo_maximo;
 
-	public Integer getId_comercio() {
-		return id_comercio;
-	}	
+	//public Integer getId_comercio() {
+	//	return id_comercio;
+	//}	
 	
+    //@OneToMany(mappedBy = "id_comercio")
+	//private List<ServicioEntity> servicios;
 }

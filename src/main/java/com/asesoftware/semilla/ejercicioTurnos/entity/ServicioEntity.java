@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 
 import lombok.Data;
 
@@ -19,11 +22,12 @@ public class ServicioEntity {
 	@Column(name = "id_servicio")
 	private Integer id_servicio;
 	
-	@Column(name = "id_comercio")
-	private Integer id_comercio;
+	@ManyToOne
+	@JoinColumn(name = "id_comercio")
+	private ComercioEntity id_comercio;
 	
 	@Column(name = "nombre_servicio")
-	private String nombre_servicio;
+	private String nombreServicio;
 	
 	@Column(name = "hora_apertura")
 	private String hora_apertura;
@@ -33,5 +37,10 @@ public class ServicioEntity {
 	
 	@Column(name = "duracion")
 	private Integer duracion;
+	
+	//@OneToMany(mappedBy = "id_servicio")
+	//private List<TurnosEntity> turnos;
+	
+	
 	
 }
