@@ -2,6 +2,8 @@ package com.asesoftware.semilla.ejercicioTurnos.controller;
 
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +19,8 @@ import com.asesoftware.semilla.ejercicioTurnos.service.ITurnoService;
 @RequestMapping(path = "/api/v1/turnos")
 public class TurnoController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(TurnoController.class);
+	
 	@Autowired
 	private ITurnoService turnoService;
 	
@@ -30,7 +34,8 @@ public class TurnoController {
 	//consulta por id de  servicio
 	
 	@GetMapping(path = "/comercios/{id_comercio}/servicios/{id_servicio}")
-	public ResponseDTO getComercio(@PathVariable Integer id_comercio, @PathVariable Integer id_servicio){
+	public ResponseDTO getTurno(@PathVariable Integer id_comercio, @PathVariable Integer id_servicio){
+		logger.info("Ingreso al metodo getTurno");
 		return turnoService.getTurnos( id_comercio, id_servicio);
 		
 	}
